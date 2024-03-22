@@ -1,0 +1,33 @@
+@import "./variables";
+
+// Document
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+
+  background: $color-bg;
+  color: $color-text;
+
+  font-family: $font-family;
+  font-size: $font-size;
+  letter-spacing: $letter-spacing;
+  line-height: $line-height;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  .no-scroll &,
+  .smooth & {
+    overflow: hidden !important;
+  }
+
+  a {
+    color: $color-graybase;
+    text-decoration: none;
+  }
+}

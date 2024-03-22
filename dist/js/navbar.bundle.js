@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",(function(){var e=document.querySelector(".navbar-toggle"),n=document.querySelector(".navbar");e.addEventListener("click",(function(){n.classList.toggle("expanded")}))}));

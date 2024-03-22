@@ -1,0 +1,116 @@
+extends ./_include/layout.pug
+
+block title
+    title Farm Fresh
+
+block description
+    meta(name="description" content="Farm Fresh Official Site")
+
+block canonical
+    - const canonicalUrl = "https://tentwenty-assignment.web.app/"
+    if canonicalUrl
+        link(rel="canonical", href=canonicalUrl)
+
+block content
+    .home-page-wrapper
+        nav.navbar
+            button.navbar-toggle(type="button")
+                span.navbar-toggle-icon
+                span.navbar-toggle-icon
+                span.navbar-toggle-icon
+            ul.navbar-menu
+                li.navbar-item
+                    a(href="#" class="active") About
+                li.navbar-item
+                    a(href="#") News
+                li.navbar-item
+                    a(href="#") Services
+                li.navbar-item
+                    a(href="#") Our Team
+                li.navbar-item
+                    a(href="#") Make Enquiry
+            a(href="#" class="contact-btn") 
+                | Contact Now
+                img(src="/assets/icons/ArrowRight.svg" alt="")
+
+        .hero-container
+            .title-text
+                h2.small-heading
+                    | Welcome To TenTwenty Farms
+                h2.big-heading
+                    | From our Farms #[br] to your hands
+            img.background-img(src="https://s3-alpha-sig.figma.com/img/3255/738d/8e0a4f8b807a5a6235350d3b78539454?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=iA~qOdAMLwJNG-hbpZODGFQIgygDO1ByqDAYJoMuj8uhY1wCDy8CCZZ8ioCiUoovpYUtqhT5SWp6vDDd4PSv87JZPdakc2I7dm3YnNZ2-m7r19akYRBk9ljO0CUAYCHH6nyrZbYyKoFy6PFnRr4rdQOBOtecG1NhCi-LlRygLmJxHp8dLOS-dr9sR9m5XTMPR0f3WC9kwFToTAsZ4-MX~8oY8WgseSbAGxybjGdBFU6rSvlkh32v2QPdkjPnX0ZcK~~CDhusY-9VZ7Sz5p0jzJ1fbCoTr2CFRVMe-I1uz-SU-wPt69LtIVx637cG71xRzcNdicNpJx1RGjpsuxsJUw__" alt="")
+            .progress-square
+                img.inner-img(src="https://s3-alpha-sig.figma.com/img/a72f/2252/a93e957af57b10b73de0d286f330f4d0?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=enBHXydFubUaee5EtTRc9nYFdGgcPDoR~xnPcFep5b8Ju9JNbLu~2c7KMMdLdFg~kNI55O8nsdLOumSs7JFFdTX8OMM8fs2IJYlHQMWMklUunolJ~GwCLP0Ft6Q~wLyqwKyN4zVoJj6qnVoaJrKFzEn4SBjcEZ3vDn1bNdgRBW7fGCFRaTmGrWpXfD3hdOzXYprY36vhpYrqa-mseo5kh3HDkfZDPs2JE4GCD2b1ztNz8uuoJlX5FOQZVCLp4s1m7PxqsxxBFvBtwfpH9COymayPNRza7xr1igu8xKfJUKdfYXLmNDk-GxbZ4oGOVmkU-0ivb14Zs7p3mp37500kZQ__" alt="")
+                h2.inner-text
+                    | Next
+                .progress-side.top-side
+                .progress-side.right-side
+                .progress-side.bottom-side
+                .progress-side.left-side
+            .page-indicator-number
+                h3.current-img
+                    | 01
+                .line
+                h3.all-image-count
+                    | 02
+
+        .quality-products-container
+            .header-text
+                h1.qp-title 
+                    | Quality Products
+                p.qp-para 
+                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. #[br] Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+            .swiper.mySwiper
+                .swiper-wrapper
+                    .swiper-slide
+                        img(src="/assets/imgs/img-01.png")
+                        h1 Client 1
+                        p Dubai, United Arab Emirates
+                    .swiper-slide
+                        img(src="/assets/imgs/img-02.png")
+                        h1 Client 2
+                        p Mumbai, India
+                    .swiper-slide
+                        img(src="/assets/imgs/img-03.png")
+                        h1 Client 3
+                        p CA, USA
+                    .swiper-slide
+                        img(src="/assets/imgs/img-04.png")
+                        h1 Client 4
+                        p Brazil
+                    .swiper-slide
+                        img(src="/assets/imgs/img-05.png")
+                        h1 Client 4
+                        p Korea
+                    .swiper-slide
+                        img(src="/assets/imgs/img-06.png")
+                        h1 Client 6
+                        p Dubai, United Arab Emirates
+                .swiper-pagination
+    script.
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            autoplay: {
+                delay: 5000,
+            },
+            coverflowEffect: {
+                rotate: 100,
+                stretch: 0,
+                slideShadows: true,
+
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            autoplay: {
+                delay: 1000,
+            }
+        });
+    link(rel="stylesheet" href="/styles/pages/home.module.min.css")
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css")
+    script(src="/js/main-page.bundle.js")  

@@ -1,0 +1,107 @@
+@import "../main.scss";
+
+.navbar {
+  position: fixed;
+  top: 10px; /* Offset from the top */
+  left: 10px; /* Offset from the left */
+  right: 10px;
+  width: auto;
+  color: $color-graybase;
+  background-color: $color-base;
+  display: flex;
+  justify-content: space-between;
+  z-index: 999;
+  box-sizing: border-box; /* Ensure padding is included in the element's width */
+  padding: 10px 20px 10px 20px;
+
+  .navbar-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+
+    .navbar-item {
+      margin-right: 10px;
+
+      a {
+        text-decoration: none;
+        color: $color-graybase;
+        padding: 10px;
+        transition: background-color 0.3s ease;
+      }
+    }
+  }
+
+  .navbar-toggle {
+    display: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+
+    .navbar-toggle-icon {
+      width: 25px;
+      height: 3px;
+      background-color: $color-graybase;
+      display: block;
+      margin: 5px 0;
+    }
+  }
+
+  .contact-btn {
+    text-decoration: none;
+    color: $color-graybase;
+    padding: 10px 10px 10px 10px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid $color-graybase;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin: 0 0 0 0.1rem;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .navbar-menu {
+      display: none;
+    }
+
+    .navbar-toggle {
+      display: block;
+    }
+
+    &.expanded {
+      height: max-content;
+      z-index: 1000;
+      .navbar-menu {
+        height: max-content;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: $color-base;
+        width: 100%;
+        z-index: 1000;
+
+        .navbar-item {
+          width: 100%; // Ensure full width for alignment and spacing consistency
+
+          a {
+            margin: 10px 0; // Simplified margin (top/bottom)
+            width: 100%;
+            font-size: 18px;
+            display: block; // Ensure <a> takes the full width for better clickability
+          }
+        }
+      }
+    }
+  }
+}
