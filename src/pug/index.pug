@@ -14,6 +14,9 @@ block canonical
 block content
     .home-page-wrapper
         nav.navbar
+            a(href="#" class="contact-btn") 
+                | Contact Now
+                img(src="/assets/icons/ArrowRight.svg" alt="")
             button.navbar-toggle(type="button")
                 span.navbar-toggle-icon
                 span.navbar-toggle-icon
@@ -29,9 +32,7 @@ block content
                     a(href="#") Our Team
                 li.navbar-item
                     a(href="#") Make Enquiry
-            a(href="#" class="contact-btn") 
-                | Contact Now
-                img(src="/assets/icons/ArrowRight.svg" alt="")
+
 
         .hero-container
             .title-text
@@ -55,62 +56,36 @@ block content
                 h3.all-image-count
                     | 02
 
+
+
+
         .quality-products-container
             .header-text
                 h1.qp-title 
                     | Quality Products
                 p.qp-para 
                     | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. #[br] Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            .carousel
+                .wrapper
+                    img(src="/assets/imgs/img-01.png" alt="")
+                    h3.centered-title Image 1 Title
+                .wrapper
+                    img(src="/assets/imgs/img-02.png" alt="")
+                    h3.centered-title Image 2 Title
+                .wrapper
+                    img(src="/assets/imgs/img-03.png" alt="")
+                    h3.centered-title Image 3 Title
+                .wrapper
+                    img(src="/assets/imgs/img-04.png" alt="")
+                    h3.centered-title Image 4 Title
+                .wrapper
+                    img(src="/assets/imgs/img-05.png" alt="")
+                    h3.centered-title Image 5 Title
+                .wrapper
+                    img(src="/assets/imgs/img-06.png" alt="")
+                    h3.centered-title Image 6 Title
 
-            .swiper.mySwiper
-                .swiper-wrapper
-                    .swiper-slide
-                        img(src="/assets/imgs/img-01.png")
-                        h1 Client 1
-                        p Dubai, United Arab Emirates
-                    .swiper-slide
-                        img(src="/assets/imgs/img-02.png")
-                        h1 Client 2
-                        p Mumbai, India
-                    .swiper-slide
-                        img(src="/assets/imgs/img-03.png")
-                        h1 Client 3
-                        p CA, USA
-                    .swiper-slide
-                        img(src="/assets/imgs/img-04.png")
-                        h1 Client 4
-                        p Brazil
-                    .swiper-slide
-                        img(src="/assets/imgs/img-05.png")
-                        h1 Client 4
-                        p Korea
-                    .swiper-slide
-                        img(src="/assets/imgs/img-06.png")
-                        h1 Client 6
-                        p Dubai, United Arab Emirates
-                .swiper-pagination
-    script.
-        var swiper = new Swiper(".mySwiper", {
-            effect: "coverflow",
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: "auto",
-            autoplay: {
-                delay: 5000,
-            },
-            coverflowEffect: {
-                rotate: 100,
-                stretch: 0,
-                slideShadows: true,
 
-            },
-            pagination: {
-                el: ".swiper-pagination",
-            },
-            autoplay: {
-                delay: 1000,
-            }
-        });
     link(rel="stylesheet" href="/styles/pages/home.module.min.css")
-    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css")
-    script(src="/js/main-page.bundle.js")  
+    script(src="/js/main-page.bundle.js")
+    script(src="/js/navbar.bundle.js")   

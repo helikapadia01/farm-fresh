@@ -3,7 +3,9 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import Draggable from "gsap/Draggable";
 import Scrollbar from "smooth-scrollbar";
 import SplitType from "split-type";
+import MouseFollower from "mouse-follower";
 
+MouseFollower.registerGSAP(gsap);
 gsap.registerPlugin(ScrollTrigger, Draggable);
 
 const container = document.querySelector(".home-page-wrapper");
@@ -27,6 +29,7 @@ ScrollTrigger.scrollerProxy(".home-page-wrapper", {
         return scrollbar.scrollTop;
     },
 });
+
 
 ScrollTrigger.scrollerProxy(container, {
     scrollTop(value) {
@@ -202,14 +205,77 @@ tl.from('.qp-para', {
     stagger: 0.05
 }, "+=0.5");
 
+Draggable.create(".carousel", {
+    type: "rotation",
+    inertia: true,
+    minimumMovement: 0,
+    snap: function (endValue) {
+        var step = 10;
+        return Math.round(endValue / step) * step;
+    },
+    onDrag: function () {
+        // Calculate rotation
+        var rotation = this.rotation % 360;
+        if (rotation < 0) {
+            rotation += 360;
+        }
+
+        // Calculate index of the image in the center
+        var numImages = 6; // Update with the total number of images in your carousel
+        var centerIndex = Math.floor(rotation / (180 / numImages));
+
+        // Hide all titles first
+        document.querySelectorAll('.centered-title').forEach(function (title) {
+            title.style.display = 'none';
+        });
+
+        // Show title of the image in the center
+        document.querySelector('.carousel .wrapper:nth-child(' + (centerIndex + 1) + ') .centered-title').style.display = 'block';
+    }
+});
+
+// Function to update title visibility based on currently centered image
+function updateCenteredTitle() {
+    // Get all the wrappers and titles
+    const wrappers = document.querySelectorAll('.carousel .wrapper');
+    const titles = document.querySelectorAll('.carousel .centered-title');
+
+    // Find the wrapper that is currently in the center
+    let centerWrapper;
+    wrappers.forEach(wrapper => {
+        const rect = wrapper.getBoundingClientRect();
+        if (rect.left <= window.innerWidth / 2 && rect.right >= window.innerWidth / 2) {
+            centerWrapper = wrapper;
+        }
+    });
+
+    // Hide all titles first
+    titles.forEach(title => {
+        title.style.display = 'none';
+    });
+
+    // Show the title of the currently centered wrapper
+    if (centerWrapper) {
+        const title = centerWrapper.querySelector('.centered-title');
+        if (title) {
+            title.style.display = 'block';
+        }
+    }
+}
+
+// Call the function when the page loads and when the window is resized
+window.addEventListener('load', updateCenteredTitle);
+window.addEventListener('resize', updateCenteredTitle);
 
 
 
+const cursor = new MouseFollower();
+const el = document.querySelector('.wrapper');
 
+el.addEventListener('mouseenter', () => {
+    cursor.setText('Drag');
+});
 
-
-
-
-
-
-
+el.addEventListener('mouseleave', () => {
+    cursor.removeText();
+});
